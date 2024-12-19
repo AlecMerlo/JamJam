@@ -1,13 +1,10 @@
-Enemy enemy;
 Player player = new Player();
-ArrayList<Enemy> enemies = new ArrayList();
 PVector cameraPos = new PVector(10,40);
 
 boolean wDown, sDown, aDown, dDown, spaceDown;
 
 void setup(){
   size(800,800);
-  enemies.add(new Enemy());
   rectMode(CENTER);
 }
 
