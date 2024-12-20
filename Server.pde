@@ -1,27 +1,28 @@
 Server server;
+Ser ser = new Ser();
 
 class Ser{
-  int port;
+  int users;
+  String input;
+  String output;
 }
 
 void serverSetup(){
-  Ser ser = new Ser();
-  ser.port = int(random(10000,99999));
-  server = new Server(this, ser.port);
+  server = new Server(this, 12345);
   user.playerNum = 0;
 }
 
 void serverEveryFrame(){
   client = server.available();
   if(client != null){
-    
+    serverRecieve();
   }
 }
 
 void serverRecieve(){
-  
+  ser.input = ser.input.substring(0, ser.input.indexOf("\n"));
 }
 
 void serverOutput(){
-  
+  server.write(ser.output);
 }

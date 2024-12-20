@@ -14,6 +14,8 @@ boolean isServer;
 void setup(){
   size(800,800);
   rectMode(CENTER);
+  
+  serverSetup();
 }
 
 void draw(){
@@ -27,13 +29,9 @@ void draw(){
 void visuals(){
   switch(gameScreen){
     case 0:
-      if(isServer){
-        textFont(createFont("Arial", 20));
-        text();
-      }
-      else{
-        
-      }
+      textFont(createFont("Arial", 20));
+      stroke(200);
+      text("Your port:"ser.port,200,400);
       break;
     case 1:
       // moving everything with the camera position
