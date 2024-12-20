@@ -18,13 +18,13 @@ void draw(){
 
 void visuals(){
   push();
-  translate(cameraPos.x, cameraPos.y);
-  ellipse(player.position.x,player.position.y,40,40);
-  strokeWeight(5);
-  stroke(255);
-  if(spaceDown){
-    line(player.position.x,player.position.y,player.position.x + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().x, player.position.y + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().y);
-  }
+    translate(cameraPos.x, cameraPos.y);
+    ellipse(player.position.x,player.position.y,40,40);
+    strokeWeight(5);
+    stroke(255);
+    if(spaceDown){
+      line(player.position.x,player.position.y,player.position.x + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().x, player.position.y + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().y);
+    }
   pop();
 }
 
