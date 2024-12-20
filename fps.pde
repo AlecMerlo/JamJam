@@ -9,7 +9,7 @@ Player player = new Player();
 PVector cameraPos = new PVector(10,40);
 
 boolean wDown, sDown, aDown, dDown, spaceDown;
-boolean isServer = true, ready = false;
+boolean isServer = false;
 
 // 0 = menu,  1 = game
 int screen = 0;
@@ -32,14 +32,17 @@ void draw(){
 }
 
 void startGame(){
-  if(isServer && ready){
-    
+  
+  if(isServer){
+    screen = 1;
   }
-  else if(isServer){
-    ser = new Server(this,10000);
+  else if(userInput == ""){
+    ser = new Server(this,12345);
+    isServer = true;
   }
   else{
-    
+    cli = new Client(this, userInput, 12345);
+    screen = 1;
   }
 }
 
@@ -134,7 +137,7 @@ void keyReleased(){
     }
   }
   if(key == '\n'){
-    if(screen == 0 && ser == null && userInput == ""){
+    if(screen == 0){
       startGame();
     }
     userInput = "";
