@@ -1,3 +1,5 @@
+// Made by: Alec, Julia, Shoheet, Josh
+
 Player player = new Player();
 PVector cameraPos = new PVector(10,40);
 
@@ -17,6 +19,7 @@ void draw(){
 }
 
 void visuals(){
+  // moving everything to the camera position
   push();
     translate(cameraPos.x, cameraPos.y);
     ellipse(player.position.x,player.position.y,40,40);
@@ -33,6 +36,7 @@ void playerMove(){
   player.velocity.y += player.acceleration.y;
   player.position.x += player.velocity.x;
   player.position.y += player.velocity.y;
+  // slowly going towards 0
   player.velocity.x *= 0.98;
   player.velocity.y *= 0.98;
 }
