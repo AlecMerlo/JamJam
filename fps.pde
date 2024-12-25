@@ -11,7 +11,7 @@ PVector cameraPos = new PVector(10,40);
 boolean wDown, sDown, aDown, dDown, spaceDown;
 boolean isServer = false;
 
-// 0 = menu,  1 = game, 2 = server menu
+// 0 = menu,  1 = game, 2 = server menu, 3 = client menu
 int screen = 0;
 
 String userInput = "";
@@ -31,18 +31,27 @@ void draw(){
   visuals();
 }
 
+void connect(){
+  cli = new Client(this, userInput, 12345);
+  if((cli = new Client(this, userInput, 12345)) != null){
+    screen = 3;
+  }
+  else{
+    screen = 0;
+  }
+}
+
 void startGame(){
-  
   if(isServer){
     screen = 1;
   }
   else if(userInput == ""){
     ser = new Server(this,12345);
     isServer = true;
+    screen = 2;
   }
   else{
-    cli = new Client(this, userInput, 12345);
-    screen = 1;
+    connect();
   }
 }
 
@@ -52,7 +61,7 @@ void menu(){
 
 void visuals(){
   if(screen == 0){
-    text(ser.ip(),200,200);
+    text("Enter no text to be a server, enter the other person's ip to join them",200,200);
     text(userInput,200,250);
   }
   if(screen == 1){
@@ -68,8 +77,11 @@ void visuals(){
     pop(); 
   }
   if(screen == 2){
-      text("Server",200,200);
-    }
+    text("You are a server, your ip is: "+ser.ip(),200,200);
+  }
+  if(screen == 3){
+    
+  }
 }
 
 void playerMove(){
@@ -140,11 +152,16 @@ void keyReleased(){
     }
   }
   if(key == '\n'){
-    if(screen == 0){
-      screen = 2;
-    }
-    if(screen == 2){
+    if(screen == 0 || screen == 2){
       startGame();
+    }
+    if(screen == 3){
+      if(cli.active() == true){
+        screen = 1;
+      }
+      else{
+        screen = 0;
+      }
     }
     userInput = "";
   }
