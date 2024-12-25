@@ -11,7 +11,7 @@ PVector cameraPos = new PVector(10,40);
 boolean wDown, sDown, aDown, dDown, spaceDown;
 boolean isServer = false;
 
-// 0 = menu,  1 = game
+// 0 = menu,  1 = game, 2 = server menu
 int screen = 0;
 
 String userInput = "";
@@ -67,6 +67,9 @@ void visuals(){
       }
     pop(); 
   }
+  if(screen == 2){
+      text("Server",200,200);
+    }
 }
 
 void playerMove(){
@@ -81,16 +84,16 @@ void playerMove(){
 
 void heldKeys(){
   if(wDown){
-    cameraPos.y -= 2;
-  }
-  if(sDown){
     cameraPos.y += 2;
   }
+  if(sDown){
+    cameraPos.y -= 2;
+  }
   if(aDown){
-    cameraPos.x -= 2;
+    cameraPos.x += 2;
   }
   if(dDown){
-    cameraPos.x += 2;
+    cameraPos.x -= 2;
   }
   if(spaceDown){
     player.boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
@@ -138,6 +141,9 @@ void keyReleased(){
   }
   if(key == '\n'){
     if(screen == 0){
+      screen = 2;
+    }
+    if(screen == 2){
       startGame();
     }
     userInput = "";
