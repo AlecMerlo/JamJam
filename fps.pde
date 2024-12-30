@@ -10,6 +10,7 @@ PVector cameraPos = new PVector(10,40);
 
 boolean wDown, sDown, aDown, dDown, spaceDown;
 boolean isServer = false;
+boolean cliConnected = false;
 
 // 0 = menu,  1 = game, 2 = server menu, 3 = client menu
 int screen = 0;
@@ -28,6 +29,9 @@ void draw(){
   if(screen == 1){
     playerMove();
   }
+  if(cliConnected == true){
+    
+  }
   visuals();
 }
 
@@ -35,6 +39,7 @@ void connect(){
   cli = new Client(this, userInput, 12345);
   if((cli = new Client(this, userInput, 12345)) != null){
     screen = 3;
+    cliConnected = true;
   }
   else{
     screen = 0;
