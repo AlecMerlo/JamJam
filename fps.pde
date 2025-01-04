@@ -32,7 +32,18 @@ void draw(){
   if(cliConnected == true){
     
   }
+  else if(isServer == true){
+    
+  }
   visuals();
+}
+
+void client(){
+  
+}
+
+void server(){
+  
 }
 
 void connect(){
