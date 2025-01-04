@@ -45,8 +45,8 @@ void client(){
 void server(){
   cli = ser.available();
   if (cli != null) {
-    String input = cli.readString();
-    input = input.substring(0, input.indexOf("\n")); // Only up to the newline
+    String input = cli.readString()+'\n';
+    input = input.substring(0, input.indexOf('\n')); // Only up to the newline
     println(input);
   }
 }
