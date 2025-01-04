@@ -28,22 +28,27 @@ void draw(){
   heldKeys();
   if(screen == 1){
     playerMove();
-  }
-  if(cliConnected == true){
-    
-  }
-  else if(isServer == true){
-    
+    if(cliConnected == true){
+      client();
+    }
+    else if(isServer == true){
+      server();
+    }
   }
   visuals();
 }
 
 void client(){
-  
+  cli.write(player.position.toString());
 }
 
 void server(){
-  
+  cli = ser.available();
+  if (cli != null) {
+    String input = cli.readString();
+    input = input.substring(0, input.indexOf("\n")); // Only up to the newline
+    println(input);
+  }
 }
 
 void connect(){
@@ -69,10 +74,6 @@ void startGame(){
   else{
     connect();
   }
-}
-
-void menu(){
-  
 }
 
 void visuals(){
@@ -111,7 +112,7 @@ void playerMove(){
 }
 
 void heldKeys(){
-  if(wDown){
+  /*if(wDown){
     cameraPos.y += 2;
   }
   if(sDown){
@@ -122,7 +123,7 @@ void heldKeys(){
   }
   if(dDown){
     cameraPos.x -= 2;
-  }
+  }*/
   if(spaceDown){
     player.boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
   }
