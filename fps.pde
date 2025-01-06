@@ -96,18 +96,18 @@ void visuals(){
 }
 
 void playerMove(){
-  player.velocity.x += player.acceleration.x;
-  player.velocity.y += player.acceleration.y;
-  player.position.x += player.velocity.x;
-  player.position.y += player.velocity.y;
+  players.get(0).velocity.x += players.get(0).acceleration.x;
+  players.get(0).velocity.y += players.get(0).acceleration.y;
+  players.get(0).position.x += players.get(0).velocity.x;
+  players.get(0).position.y += players.get(0).velocity.y;
   // slowly going towards 0
-  player.velocity.x *= 0.98;
-  player.velocity.y *= 0.98;
+  players.get(0).velocity.x *= 0.98;
+  players.get(0).velocity.y *= 0.98;
 }
 
 void heldKeys(){
   if(wDown){
-    players.get(0).boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
+    players.get(0).boostCharge = constrain(players.get(0).boostCharge + 0.015, 0, 1);
   }
   if(aDown){
     players.get(0).rotation -= 1;
@@ -116,7 +116,7 @@ void heldKeys(){
     players.get(0).rotation += 1;
   }
   if(upDown){
-    players.get(1).boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
+    players.get(1).boostCharge = constrain(players.get(0).boostCharge + 0.015, 0, 1);
   }
   if(leftDown){
     players.get(1).rotation -= 1;
@@ -173,6 +173,6 @@ void keyReleased(){
     spaceDown = false;
     players.get(0).velocity.x += players.get(0).boostCharge * 10 * new PVector(mouseX-cameraPos.x - players.get(0).position.x,mouseY-cameraPos.y - players.get(0).position.y).normalize().x;
     players.get(0).velocity.y += players.get(0).boostCharge * 10 * new PVector(mouseX-cameraPos.x - players.get(0).position.x,mouseY-cameraPos.y - players.get(0).position.y).normalize().y;
-    player.boostCharge = 0;
+    players.get(0).boostCharge = 0;
   }
 }
