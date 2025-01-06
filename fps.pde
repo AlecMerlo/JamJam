@@ -12,7 +12,8 @@ PImage arenaImg;
 PImage titleScreenImg;
 int playerSkin = 0;
 
-Player player = new Player();
+Player player1 = new Player();
+Player player2 = new Player();
 ArrayList<Player> players = new ArrayList();
 PVector cameraPos = new PVector(10,40);
 
@@ -33,9 +34,11 @@ void setup(){
   WinKnightImg = loadImage("WinKnight.png");
   arenaImg = loadImage("arena.png");
   titleScreenImg = loadImage("titleScreen.png");
-  players.add(player);
-  players.add(player);
-  menu = 3;
+  players.add(player1);
+  players.add(player2);
+  menu =3;
+  players.get(0).skin = 1;
+  players.get(1).skin = 2;
 }
 
 void draw(){
@@ -56,11 +59,11 @@ void visuals(){
       // moving everything to the camera position
       push();
       translate(cameraPos.x, cameraPos.y);
-      ellipse(player.position.x,player.position.y,40,40);
+      ellipse(players.get(0).position.x,players.get(0).position.y,40,40);
       strokeWeight(5);
       stroke(255);
       if(spaceDown){
-        line(player.position.x,player.position.y,player.position.x + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().x, player.position.y + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().y);
+        line(players.get(0).position.x,players.get(0).position.y,players.get(0).position.x + players.get(0).boostCharge * 100 * new PVector(mouseX-cameraPos.x - players.get(0).position.x,mouseY-cameraPos.y - players.get(0).position.y).normalize().x, players.get(0).position.y + players.get(0).boostCharge * 100 * new PVector(mouseX-cameraPos.x - players.get(0).position.x,mouseY-cameraPos.y - players.get(0).position.y).normalize().y);
       }
       pop();
       break;
