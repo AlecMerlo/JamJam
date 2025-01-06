@@ -33,6 +33,9 @@ void setup(){
   WinKnightImg = loadImage("WinKnight.png");
   arenaImg = loadImage("arena.png");
   titleScreenImg = loadImage("titleScreen.png");
+  players.add(player);
+  players.add(player);
+  menu = 3;
 }
 
 void draw(){
