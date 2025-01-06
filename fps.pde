@@ -6,7 +6,7 @@ PVector cameraPos = new PVector(10,40);
 
 // 0 = main menu, 1 = game, 2 = win
 int menu = 0;
-boolean wDown, sDown, aDown, dDown, spaceDown, upDown, downDown, leftDown, rightDown;
+boolean wDown, aDown, dDown, spaceDown, upDown, leftDown, rightDown;
 
 void setup(){
   size(800,800);
@@ -46,40 +46,28 @@ void playerMove(){
 
 void heldKeys(){
   if(wDown){
-    
-  }
-  if(sDown){
-    
+    players.get(0).boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
   }
   if(aDown){
-    
+    players.get(0).rotation -= 1;
   }
   if(dDown){
-    
+    players.get(0).rotation += 1;
   }
   if(upDown){
-    
-  }
-  if(downDown){
-    
+    players.get(1).boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
   }
   if(leftDown){
-    
+    players.get(1).rotation -= 1;
   }
   if(rightDown){
-    
-  }
-  if(spaceDown){
-    player.boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
+    players.get(1).rotation += 1;
   }
 }
 
 void keyPressed(){
   if(key == 'w'){
     wDown = true;
-  }
-  if(key == 's'){
-    sDown = true;
   }
   if(key == 'a'){
     aDown = true;
@@ -89,9 +77,6 @@ void keyPressed(){
   }
   if(key == UP){
     upDown = true;
-  }
-  if(key == DOWN){
-    downDown = true;
   }
   if(key == LEFT){
     leftDown = true;
@@ -108,9 +93,6 @@ void keyReleased(){
   if(key == 'w'){
     wDown = false;
   }
-  if(key == 's'){
-    sDown = false;
-  }
   if(key == 'a'){
     aDown = false;
   }
@@ -119,9 +101,6 @@ void keyReleased(){
   }
   if(key == UP){
     upDown = false;
-  }
-  if(key == DOWN){
-    downDown = false;
   }
   if(key == LEFT){
     leftDown = false;
