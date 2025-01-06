@@ -1,5 +1,16 @@
 // Made by: Alec, Julia, Shoheet, Josh
 
+PImage AssassinImg;
+PImage CyclopsImg;
+PImage SoldierImg;
+PImage KnightImg;
+PImage WinAssassinImg;
+PImage WinCyclopsImg;
+PImage WinSoldierImg;
+PImage WinKnightImg;
+PImage arenaImg;
+PImage titleScreenImg;
+
 Player player = new Player();
 ArrayList<Player> players = new ArrayList();
 PVector cameraPos = new PVector(10,40);
@@ -11,6 +22,16 @@ boolean wDown, aDown, dDown, spaceDown, upDown, leftDown, rightDown;
 void setup(){
   size(800,800);
   rectMode(CENTER);
+  AssassinImg = loadImage("Assassin.png");
+  CyclopsImg = loadImage("Cyclops.png");
+  SoldierImg = loadImage("Soldier.png");
+  KnightImg = loadImage("Knight.png");
+  WinAssassinImg = loadImage("WinAssassin.png");
+  WinCyclopsImg = loadImage("WinCyclops.png");
+  WinSoldierImg = loadImage("WinSoldier.png");
+  WinKnightImg = loadImage("WinKnight.png");
+  arenaImg = loadImage("arena.png");
+  titleScreenImg = loadImage("titleScreen.png");
 }
 
 void draw(){
