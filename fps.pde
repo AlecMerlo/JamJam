@@ -1,15 +1,16 @@
 // Made by: Alec, Julia, Shoheet, Josh
 
 PImage AssassinImg;
-PImage CyclopsImg;
+PImage CyborgImg;
 PImage SoldierImg;
 PImage KnightImg;
 PImage WinAssassinImg;
-PImage WinCyclopsImg;
+PImage WinCyborgImg;
 PImage WinSoldierImg;
 PImage WinKnightImg;
 PImage arenaImg;
 PImage titleScreenImg;
+int playerSkin = 0;
 
 Player player = new Player();
 ArrayList<Player> players = new ArrayList();
@@ -23,11 +24,11 @@ void setup(){
   size(800,800);
   rectMode(CENTER);
   AssassinImg = loadImage("Assassin.png");
-  CyclopsImg = loadImage("Cyclops.png");
+  CyborgImg = loadImage("Cyborg.png");
   SoldierImg = loadImage("Soldier.png");
   KnightImg = loadImage("Knight.png");
   WinAssassinImg = loadImage("WinAssassin.png");
-  WinCyclopsImg = loadImage("WinCyclops.png");
+  WinCyborgImg = loadImage("WinCyborg.png");
   WinSoldierImg = loadImage("WinSoldier.png");
   WinKnightImg = loadImage("WinKnight.png");
   arenaImg = loadImage("arena.png");
@@ -63,7 +64,26 @@ void visuals(){
     
       break;
     case 3:
-    
+    //player 1
+    if (players.get(0).skin == 0) {
+      image(AssassinImg, 200, 400, 300, 300);
+    } else if (players.get(0).skin == 1) {
+    image(CyborgImg, 200, 400, 300, 300);
+    } else if (players.get(0).skin == 2) {
+    image(SoldierImg, 200, 400, 300, 300);
+    } else if (players.get(0).skin == 3) {
+    image(KnightImg, 200, 400, 300, 300);
+    }
+    //player 2
+    if (players.get(1).skin == 0) {
+      image(AssassinImg, 600, 400, 300, 300);
+    } else if (players.get(1).skin == 1) {
+    image(CyborgImg, 600, 400, 300, 300);
+    } else if (players.get(1).skin == 2) {
+    image(SoldierImg, 600, 400, 300, 300);
+    } else if (players.get(1).skin == 3) {
+    image(KnightImg, 600, 400, 300, 300);
+    }
       break;
   }
 }

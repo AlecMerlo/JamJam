@@ -5,4 +5,5 @@ class Player{
   PVector acceleration = new PVector();
   int rotation;
   float boostCharge;
+  int skin;
 }
