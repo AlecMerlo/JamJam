@@ -15,7 +15,7 @@ Player player = new Player();
 ArrayList<Player> players = new ArrayList();
 PVector cameraPos = new PVector(10,40);
 
-// 0 = main menu, 1 = game, 2 = win
+// 0 = main menu, 1 = game, 2 = win, 3 = skin select
 int menu = 0;
 boolean wDown, aDown, dDown, spaceDown, upDown, leftDown, rightDown;
 
@@ -43,16 +43,29 @@ void draw(){
 }
 
 void visuals(){
-  // moving everything to the camera position
-  push();
-    translate(cameraPos.x, cameraPos.y);
-    ellipse(player.position.x,player.position.y,40,40);
-    strokeWeight(5);
-    stroke(255);
-    if(spaceDown){
-      line(player.position.x,player.position.y,player.position.x + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().x, player.position.y + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().y);
-    }
-  pop();
+  switch(menu){
+    case 0:
+    
+      break;
+    case 1:
+      // moving everything to the camera position
+      push();
+      translate(cameraPos.x, cameraPos.y);
+      ellipse(player.position.x,player.position.y,40,40);
+      strokeWeight(5);
+      stroke(255);
+      if(spaceDown){
+        line(player.position.x,player.position.y,player.position.x + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().x, player.position.y + player.boostCharge * 100 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().y);
+      }
+      pop();
+      break;
+    case 2:
+    
+      break;
+    case 3:
+    
+      break;
+  }
 }
 
 void playerMove(){
