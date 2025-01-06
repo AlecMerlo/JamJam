@@ -44,9 +44,10 @@ void draw(){
 }
 
 void visuals(){
+  imageMode(CENTER);
   switch(menu){
     case 0:
-    
+      image(titleScreenImg, 400,400,800,800);
       break;
     case 1:
       // moving everything to the camera position
@@ -164,8 +165,8 @@ void keyReleased(){
   }
   if(key == ' '){
     spaceDown = false;
-    player.velocity.x += player.boostCharge * 10 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().x;
-    player.velocity.y += player.boostCharge * 10 * new PVector(mouseX-cameraPos.x - player.position.x,mouseY-cameraPos.y - player.position.y).normalize().y;
+    players.get(0).velocity.x += players.get(0).boostCharge * 10 * new PVector(mouseX-cameraPos.x - players.get(0).position.x,mouseY-cameraPos.y - players.get(0).position.y).normalize().x;
+    players.get(0).velocity.y += players.get(0).boostCharge * 10 * new PVector(mouseX-cameraPos.x - players.get(0).position.x,mouseY-cameraPos.y - players.get(0).position.y).normalize().y;
     player.boostCharge = 0;
   }
 }
