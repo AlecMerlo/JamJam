@@ -1,9 +1,12 @@
 // Made by: Alec, Julia, Shoheet, Josh
 
 Player player = new Player();
+ArrayList<Player> players = new ArrayList();
 PVector cameraPos = new PVector(10,40);
 
-boolean wDown, sDown, aDown, dDown, spaceDown;
+// 0 = main menu, 1 = game, 2 = win
+int menu = 0;
+boolean wDown, sDown, aDown, dDown, spaceDown, upDown, downDown, leftDown, rightDown;
 
 void setup(){
   size(800,800);
@@ -43,16 +46,28 @@ void playerMove(){
 
 void heldKeys(){
   if(wDown){
-    cameraPos.y -= 2;
+    
   }
   if(sDown){
-    cameraPos.y += 2;
+    
   }
   if(aDown){
-    cameraPos.x -= 2;
+    
   }
   if(dDown){
-    cameraPos.x += 2;
+    
+  }
+  if(upDown){
+    
+  }
+  if(downDown){
+    
+  }
+  if(leftDown){
+    
+  }
+  if(rightDown){
+    
   }
   if(spaceDown){
     player.boostCharge = constrain(player.boostCharge + 0.015, 0, 1);
@@ -72,6 +87,18 @@ void keyPressed(){
   if(key == 'd'){
     dDown = true;
   }
+  if(key == UP){
+    upDown = true;
+  }
+  if(key == DOWN){
+    downDown = true;
+  }
+  if(key == LEFT){
+    leftDown = true;
+  }
+  if(key == RIGHT){
+    rightDown = true;
+  }
   if(key == ' '){
     spaceDown = true;
   }
@@ -89,6 +116,18 @@ void keyReleased(){
   }
   if(key == 'd'){
     dDown = false;
+  }
+  if(key == UP){
+    upDown = false;
+  }
+  if(key == DOWN){
+    downDown = false;
+  }
+  if(key == LEFT){
+    leftDown = false;
+  }
+  if(key == RIGHT){
+    rightDown = false;
   }
   if(key == ' '){
     spaceDown = false;
