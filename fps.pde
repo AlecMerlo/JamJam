@@ -132,18 +132,42 @@ void keyPressed(){
   }
   if(key == 'a'){
     aDown = true;
-  }
+    if (menu == 3) {
+    players.get(0).skin += 1;
+      if (players.get(0).skin == 4) {
+        players.get(0).skin = 0;
+      }
+    }
+  } 
   if(key == 'd'){
     dDown = true;
+    if (menu == 3) {
+    players.get(0).skin -= 1;
+      if (players.get(0).skin == -1) {
+        players.get(0).skin = 3;
+      }
+    }
   }
-  if(key == UP){
+  if(keyCode == UP){
     upDown = true;
   }
-  if(key == LEFT){
+  if(keyCode == LEFT){
     leftDown = true;
+    if (menu == 3) {
+    players.get(1).skin += 1;
+      if (players.get(1).skin == 4) {
+        players.get(1).skin = 0;
+      }
+    }
   }
-  if(key == RIGHT){
+  if(keyCode == RIGHT){
     rightDown = true;
+    if (menu == 3) {
+    players.get(1).skin -= 1;
+      if (players.get(1).skin == -1) {
+        players.get(1).skin = 3;
+      }
+    }
   }
   if(key == ' '){
     spaceDown = true;
