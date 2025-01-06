@@ -36,9 +36,6 @@ void setup(){
   titleScreenImg = loadImage("titleScreen.png");
   players.add(player1);
   players.add(player2);
-  menu =3;
-  players.get(0).skin = 1;
-  players.get(1).skin = 2;
 }
 
 void draw(){
@@ -147,6 +144,11 @@ void keyPressed(){
   }
   if(key == ' '){
     spaceDown = true;
+  }
+  if(key == '\n'){
+    if(menu == 0){
+      menu = 3;
+    }
   }
 }
 
